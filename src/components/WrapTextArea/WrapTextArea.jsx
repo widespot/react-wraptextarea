@@ -15,7 +15,7 @@ export default function WrapTextArea({
 
   return (
     <div
-      style={{ ...style, cursor: 'text', display: 'inline-block' }}
+      style={{ cursor: 'text', display: 'inline-block', ...style }}
       onClick={() => elRef.current.focus()}
     >
       <div style={{ position: 'relative' }}>
@@ -26,6 +26,7 @@ export default function WrapTextArea({
           style={{
             lineHeight: 'inherit',
             textAlign: 'inherit',
+            color: 'inherit',
             resize: 'none',
             padding: 0,
             margin: 0,
