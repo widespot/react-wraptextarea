@@ -3,7 +3,7 @@ import React from 'react';
 const spaceReplace = (s) => s && s.replace(/\n$/, '\n ');
 
 export default function WrapTextArea({
-  value, onChange, style, placeholder,
+  value, onChange, style, placeholder, name,
 }) {
   const elRef = React.useRef();
 
@@ -14,11 +14,11 @@ export default function WrapTextArea({
   }, [value]);
 
   return (
-    <div
+    <span
       style={{ cursor: 'text', display: 'inline-block', ...style }}
       onClick={() => elRef.current.focus()}
     >
-      <div style={{ position: 'relative' }}>
+      <span style={{ display: 'block', position: 'relative' }}>
         <span style={{ whiteSpace: 'pre-wrap', display: 'inline-block' }}>
           {spaceReplace(v) || placeholder || <>&nbsp;</>}
         </span>
@@ -42,12 +42,13 @@ export default function WrapTextArea({
           placeholder={placeholder}
           ref={elRef}
           value={v}
+          name={name}
           onChange={(e) => {
             setV(e.target.value);
             onChange && onChange(e);
           }}
         />
-      </div>
-    </div>
+      </span>
+    </span>
   );
 }
