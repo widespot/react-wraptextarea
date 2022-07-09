@@ -17,10 +17,14 @@ return (
 ## Configuration
 
 ### Basic
+No need to deeply refactor your code. `WrapTextArea` works out of the box with
+standard input properties.
 ```jsx
 <WrapTextArea 
-    value={anyText} 
-    onChange={(e) => setAnyText(e.target.value)}
+    placeholder="undefined"
+    name="description"
+    value={description} 
+    onChange={(e) => setDescription(e.target.value)}
 />
 ```
 
@@ -28,7 +32,7 @@ return (
 ![](doc/styling.png)
 
 the `style` attribute can be used to style the component
-```js
+```jsx
 const style = {
     padding: 15,
     border: "solid 1px red",
@@ -50,7 +54,7 @@ But the styling can also be applied to the container and the `<WrapTextArea />` 
 
 ### Sizing
 
-```js
+```jsx
 const style = { width: '100%' }
 
 <table>
